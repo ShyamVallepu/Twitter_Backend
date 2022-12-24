@@ -10,7 +10,7 @@ namespace Twitter_Backend.Controllers
     [Route("api/v1/tweets")]
     [EnableCors]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     
     public class LikeController : ControllerBase
     {

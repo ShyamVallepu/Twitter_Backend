@@ -110,6 +110,7 @@ namespace Twitter_Backend.Controllers
             }
         }
 
+        [Authorize]
         [HttpPost("changePassword/{username}/{password}")]
         public IActionResult ChangePassword(string username, string password)
         {
