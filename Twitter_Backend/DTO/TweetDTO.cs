@@ -6,6 +6,7 @@
         public string Tweet { get; set; }
         public DateTime TweetDate { get; set; }
         public int likeCount { get; set; }
+        public string userName { get; set; }
 
     }
 }

@@ -81,13 +81,17 @@ namespace Twitter_Backend.Repository
         {
             try
             {
+                if (createTweet.userName==null)
+                {
+                    createTweet.userName = username;
+                }
                 TweetPost tweetcontent = new TweetPost()
                 {
                     //tweetid = createTweet.Id,
                     tweet = createTweet.Tweet,
                     likeCount = createTweet.likeCount,
                     tweetDate = DateTime.Now ,
-                    userName = username
+                    userName = createTweet.userName
                 };
                 _db.Tweets.Add(tweetcontent);
                 _db.SaveChanges();
@@ -96,7 +100,7 @@ namespace Twitter_Backend.Repository
                 {
                     tweetid = tweet.tweetid,
                     username = tweet.userName,
-                    tweetBoolean = true
+                    tweetBoolean = false
                 };
                 _db.Likes.Add(likecolumn);
                 _db.SaveChanges();

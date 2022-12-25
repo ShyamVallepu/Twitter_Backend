@@ -35,16 +35,19 @@ namespace Twitter_Backend.Controllers
         [HttpGet("{username}/getlike/{tweetId}")]
         public IActionResult getLikes(string username, int tweetId)
         {
-            bool liketweet = _likerepo.getTweetLike(tweetId, username);
-            if (liketweet)
+            try
             {
+                bool liketweet = _likerepo.getTweetLike(tweetId, username);
                 _logger.LogInformation($"Likes of {tweetId} Fetched Successfully");
-                return Ok(liketweet);
+                 return Ok(liketweet);
+                
             }
-            else
+            catch (Exception)
             {
+
                 return NotFound();
             }
+            
         }
 
 
